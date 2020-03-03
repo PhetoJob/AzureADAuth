@@ -1,15 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Microsoft.Identity.Web;
+
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace Service
 {
@@ -25,6 +21,8 @@ namespace Service
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddProtectedWebApi("AzureAd", Configuration, options => Configuration.Bind("AzureAD", options));
+            services.AddProtectedWebApi(Configuration);
             services.AddControllers();
         }
 
@@ -39,7 +37,7 @@ namespace Service
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
