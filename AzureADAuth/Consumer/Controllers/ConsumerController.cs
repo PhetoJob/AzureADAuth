@@ -26,7 +26,7 @@ namespace Consumer.Controllers
         public ConsumerController(IConfiguration configuration)
         {
             serviceUrl = configuration["Service:BaseUrl"] + "/api/data";
-            resource = configuration["Service:AzureAD:AppIdURI"];
+            resource = configuration["Service:AzureAD:AppIdScope"];
             app = ConfidentialClientApplicationBuilder.Create(configuration["AzureAD:ClientId"])
                 .WithAuthority(AzureCloudInstance.AzurePublic, configuration["AzureAD:TenantId"])
                 .WithClientSecret(configuration["AzureAD:ClientSecret"])

@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Identity.Web;
-
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Collections.Generic;
 
 namespace Service
 {
@@ -21,9 +21,24 @@ namespace Service
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddProtectedWebApi("AzureAd", Configuration, options => Configuration.Bind("AzureAD", options));
-            services.AddProtectedWebApi(Configuration);
             services.AddControllers();
+
+            services.AddAuthentication(o =>
+            {
+                o.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(o =>
+            {
+                o.Authority = Configuration["AzureAD:Instance"] + Configuration["AzureAD:TenantId"];
+                o.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidAudiences = new List<string>
+                    {
+                        Configuration["AzureAD:AppIDUri"],
+                        Configuration["AzureAD:ClientId"]
+                    }
+                };
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

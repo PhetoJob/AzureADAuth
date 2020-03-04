@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{B4CEA498-6126-4108-9A43-3EBC1333F8C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{B4CEA498-6126-4108-9A43-3EBC1333F8C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consumer", "Consumer\Consumer.csproj", "{CE917432-CAB0-4EE7-BF1C-53106B6D7C0C}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Identity.Web", "Microsoft.Identity.Web\Microsoft.Identity.Web.csproj", "{BF5A76B3-2520-4AFC-AD6A-11CD66B22C8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Consumer", "Consumer\Consumer.csproj", "{CE917432-CAB0-4EE7-BF1C-53106B6D7C0C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{CE917432-CAB0-4EE7-BF1C-53106B6D7C0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE917432-CAB0-4EE7-BF1C-53106B6D7C0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE917432-CAB0-4EE7-BF1C-53106B6D7C0C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BF5A76B3-2520-4AFC-AD6A-11CD66B22C8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BF5A76B3-2520-4AFC-AD6A-11CD66B22C8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BF5A76B3-2520-4AFC-AD6A-11CD66B22C8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BF5A76B3-2520-4AFC-AD6A-11CD66B22C8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
