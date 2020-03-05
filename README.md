@@ -90,4 +90,4 @@ Finally go to the overview of the application and record the following informati
     
 ### Run the Solution
 1. Configure the Solution to start both the *Consumer* and *Service* solution
-1. Go to the following URL to see the response of the *Consumer* API: **https://localhost/44384/api/consumer
+1. Go to the following URL to see the response of the *Consumer* API: **https://localhost/44384/api/consumer**
